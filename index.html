@@ -1,168 +1,107 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" style="overflow-x: hidden;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vanya Alrellya Payment</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; font-family: Arial, sans-serif; overflow: hidden; }
-    
-    /* canvas background */
-    #stars {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: black;
-      z-index: -1;
-    }
-
-    /* hero full screen */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
-    .hero h1 {
-      font-size: 48px;
-      color: #00d4ff;
-      text-shadow: 0 0 15px #00d4ff;
-      height: 60px;
-    }
-    .btn-main {
-      margin-top: 20px;
-      padding: 15px 35px;
-      background: linear-gradient(90deg, #7f00ff, #e100ff);
-      color: white;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 0 15px #7f00ff;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-    .btn-main:hover { box-shadow: 0 0 25px #e100ff; }
-
-    /* section pembayaran */
-    .cards {
-      display: none;
-      min-height: 100vh;
-      padding: 40px 20px;
-      background: rgba(0,0,0,0.85);
-      text-align: center;
-      overflow-y: auto;
-    }
-    .card {
-      background: rgba(28, 28, 60, 0.9);
-      margin: 20px auto;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
-      max-width: 400px;
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(0, 212, 255, 1);
-    }
-    .card h3 { margin: 0; font-size: 22px; color: #00d4ff; }
-    .card p { margin-top: 10px; font-size: 16px; color: #fff; }
-    img.qris {
-      width: 220px;
-      margin-top: 15px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #00d4ff;
-    }
-  </style>
+  <title>Modern Website</title>
+  <meta name="description" content="ProCoder09 - Bring your ideas to life with modern design, interactive 3D visuals, and powerful features.">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <canvas id="stars"></canvas>
+  <div class="background-elements"></div>
+  <nav>
+    <div class="nav-logo">ProCoder09</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">About</a>
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+    </div>
+    <button class="nav-contact">Contact us</button>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
 
-  <section class="hero" id="hero">
-    <h1 id="animatedText">Fast • Secure</h1>
-    <button class="btn-main" onclick="showPayment()">⚡ Mulai Sekarang</button>
-  </section>
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-btn" onclick="toggleMenu()">
+      <i class="fas fa-times"></i>
+    </div>
+    <a href="#" onclick="toggleMenu()">Home</a>
+    <a href="#" onclick="toggleMenu()">Features</a>
+    <a href="#" onclick="toggleMenu()">About</a>
+    <a href="#" onclick="toggleMenu()">Pricing</a>
+    <a href="#" onclick="toggleMenu()">Blog</a>
+  </div>
 
-  <section id="pay" class="cards">
-    <div class="card">
-      <h3>DANA</h3>
-      <p>087836003228</p>
+  <div class="container">
+    <div class="content">
+      <h1>Bring Your Ideas to Life</h1>
+      <p>
+        This is your space to describe your product, service, or idea. The 3D scene
+        on the right enhances visual engagement and interactivity with a modern purple neon aesthetic.
+      </p>
+      <div class="buttons">
+        <button>Get Started</button>
+        <button>Learn More</button>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-telegram" aria-label="Telegram"></i></a>
+        <a href="#"><i class="fab fa-facebook" aria-label="Facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a>
+        <a href="#"><i class="fab fa-github" aria-label="GitHub"></i></a>
+      </div>
     </div>
-    <div class="card">
-      <h3>GoPay</h3>
-      <p>087714737838</p>
+    <div class="bg-main-container">
+      <div class="bg-main">
+        <spline-viewer url="https://prod.spline.design/BoWg-dch2T9e59sl/scene.splinecode"></spline-viewer>
+      </div>
     </div>
-    <div class="card">
-      <h3>QRIS</h3>
-      <img class="qris" src="https://files.catbox.moe/q7ehkm.jpg" alt="QRIS">
-    </div>
-  </section>
+  </div>
+
+  <footer>
+    <p>© 2025 ProCoder09. All rights reserved.</p>
+  </footer>
 
   <script>
-    // Background bintang bergerak
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let stars = [];
-    for (let i = 0; i < 200; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2,
-        speed: Math.random() * 0.5
-      });
-    }
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "white";
-      stars.forEach(s => {
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-        ctx.fill();
-        s.y += s.speed;
-        if (s.y > canvas.height) s.y = 0;
-      });
-      requestAnimationFrame(animateStars);
-    }
-    animateStars();
+    function toggleMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const overlay = document.getElementById('overlay');
 
-    // Animasi text berganti
-    const texts = ["Fast • Secure", "Easy • Trusted", "Vanya Alrellya Payment"];
-    let textIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-    const animatedText = document.getElementById("animatedText");
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      overlay.classList.toggle('active');
 
-    function typeEffect() {
-      const currentText = texts[textIndex];
-      if (!deleting) {
-        animatedText.textContent = currentText.substring(0, charIndex++);
-        if (charIndex > currentText.length) {
-          deleting = true;
-          setTimeout(typeEffect, 1200);
-          return;
-        }
+      // Toggle body overflow when menu is open
+      if (mobileMenu.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
       } else {
-        animatedText.textContent = currentText.substring(0, charIndex--);
-        if (charIndex < 0) {
-          deleting = false;
-          textIndex = (textIndex + 1) % texts.length;
-        }
+        document.body.style.overflow = '';
       }
-      setTimeout(typeEffect, deleting ? 60 : 120);
     }
-    typeEffect();
 
-    // Tampilkan menu pembayaran
-    function showPayment() {
-      document.getElementById('hero').style.display = 'none';
-      document.getElementById('pay').style.display = 'block';
-    }
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      const overlay = document.getElementById('overlay');
+
+      if (mobileMenu.classList.contains('open') && 
+          !mobileMenu.contains(event.target) && 
+          !hamburger.contains(event.target)) {
+        toggleMenu();
+      }
+    });
   </script>
 </body>
 </html>
