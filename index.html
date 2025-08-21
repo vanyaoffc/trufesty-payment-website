@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,23 +19,13 @@
       font-weight: bold;
       color: #00d4ff;
     }
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-    }
     .hero {
-      margin-top: 60px;
+      margin-top: 100px;
     }
     .hero h1 {
       font-size: 48px;
       color: #00d4ff;
       text-shadow: 0 0 15px #00d4ff;
-    }
-    .hero p {
-      font-size: 16px;
-      margin-top: -10px;
     }
     .btn-main {
       display: inline-block;
@@ -47,11 +38,13 @@
       text-decoration: none;
       box-shadow: 0 0 15px #7f00ff;
       transition: 0.3s;
+      cursor: pointer;
     }
     .btn-main:hover {
       box-shadow: 0 0 25px #e100ff;
     }
     .cards {
+      display: none; /* awalnya disembunyiin */
       margin: 50px auto;
       max-width: 400px;
     }
@@ -67,14 +60,6 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
     }
-    .card h3 {
-      margin: 0;
-      font-size: 20px;
-    }
-    .card p {
-      margin: 5px 0 0;
-      font-size: 14px;
-    }
     img.qris {
       width: 200px;
       margin-top: 15px;
@@ -84,18 +69,15 @@
   </style>
 </head>
 <body>
-  <header>
-    Vanya Alrellya Payment
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-    </nav>
-  </header>  <section class="hero">
+  <header>Vanya Alrellya Payment</header>
+
+  <section class="hero">
     <h1>Fast • Secure</h1>
     <p>Solusi cepat, aman, dan modern untuk pembayaran digital & panel server.</p>
-    <a href="#pay" class="btn-main">⚡ Mulai Sekarang</a>
-  </section>  <section id="pay" class="cards">
+    <button class="btn-main" onclick="showPayment()">⚡ Mulai Sekarang</button>
+  </section>
+
+  <section id="pay" class="cards">
     <div class="card">
       <h3>DANA</h3>
       <p>087836003228</p>
@@ -109,5 +91,12 @@
       <img class="qris" src="https://files.catbox.moe/q7ehkm.jpg" alt="QRIS">
     </div>
   </section>
+
+  <script>
+    function showPayment() {
+      document.querySelector('.cards').style.display = 'block';
+      document.querySelector('.hero').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
